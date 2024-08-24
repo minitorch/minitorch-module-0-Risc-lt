@@ -51,15 +51,13 @@ class Module:
         Returns:
             The name and `Parameter` of each ancestor parameter.
         """
-        def collect_parameters(module: Module) -> Sequence[Tuple[str, Parameter]]:
-            result = []
-            for name, param in module._parameters.items():
-                result.append((name, param))
-            for submodule in module._modules.values():
-                result.extend(collect_parameters(submodule))
-            return result
-        
-        return collect_parameters(self)
+        out: list[Tuple[str, Parameter]] = []
+        for key, param in self._parameters.items():
+            out.append((key, param))
+        for name, module in self._modules.items():
+            for key, param in module.named_parameters():
+                out.append((name + "." + key, param))
+        return out
         
 
     def parameters(self) -> Sequence[Parameter]:
