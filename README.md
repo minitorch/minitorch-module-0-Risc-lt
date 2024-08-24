@@ -6,3 +6,17 @@
 * Docs: https://minitorch.github.io/
 
 * Overview: https://minitorch.github.io/module0.html
+
+### Visualization 
+
+#### parameters
+
+weight_0_0: -1.45
+
+weight_1_0: 0.09
+
+bias_0: 0.63
+
+#### Graph
+
+![plot](./plot.png)

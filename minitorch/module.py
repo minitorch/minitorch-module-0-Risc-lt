@@ -55,7 +55,7 @@ class Module:
             result = []
             for name, param in module._parameters.items():
                 result.append((name, param))
-            for submodule in module._submodules.values():
+            for submodule in module._modules.values():
                 result.extend(collect_parameters(submodule))
             return result
         
