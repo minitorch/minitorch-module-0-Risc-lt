@@ -21,8 +21,10 @@ def id(x: float) -> float:
 def add(x: float, y: float) -> float:
     return x + y
 
+
 def neg(x: float) -> float:
     return -x
+
 
 def lt(x: float, y: float) -> float:
     return 1.0 if x < y else 0.0
@@ -98,8 +100,10 @@ def map(fn: Callable[[float], float]) -> Callable[[Iterable[float]], Iterable[fl
         A function that takes a list, applies `fn` to each element, and returns a
          new list
     """
+
     def map_fn(ls: Iterable[float]) -> Iterable[float]:
         return [fn(x) for x in ls]
+
     return map_fn
 
 
@@ -124,8 +128,10 @@ def zipWith(
          applying fn(x, y) on each pair of elements.
 
     """
+
     def zipWith_fn(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
         return [fn(x, y) for x, y in zip(ls1, ls2)]
+
     return zipWith_fn
 
 
@@ -149,11 +155,13 @@ def reduce(
          $x_1 \ldots x_n$ and computes the reduction :math:`fn(x_3, fn(x_2,
          fn(x_1, x_0)))`
     """
+
     def reduce_fn(ls: Iterable[float]) -> float:
         acc = start
         for x in ls:
             acc = fn(acc, x)
         return acc
+
     return reduce_fn
 
 

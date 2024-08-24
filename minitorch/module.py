@@ -58,7 +58,6 @@ class Module:
             for key, param in module.named_parameters():
                 out.append((name + "." + key, param))
         return out
-        
 
     def parameters(self) -> Sequence[Parameter]:
         "Enumerate over all the parameters of this module and its descendents."
